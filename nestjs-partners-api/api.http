@@ -1,0 +1,62 @@
+GET http://localhost:3000/events
+
+###
+# @name createEvent
+POST http://localhost:3000/events
+Content-Type: application/json
+
+{
+  "name": "My Event",
+  "date": "2023-10-05T14:30:00",
+  "price": 100,
+  "description": "My event description"
+}
+
+###
+@eventId = {{createEvent.response.body.id}}
+
+###
+GET http://localhost:3000/events/{{eventId}}
+
+
+###
+PATCH http://localhost:3000/events/{{eventId}}
+Content-Type: application/json
+
+{
+  "name": "My Event Updated",
+  "date": "2023-10-05T14:30:00",
+  "price": 100,
+  "description": "My event description updated"
+}
+
+###
+DELETE http://localhost:3000/events/{{eventId}}
+
+###
+GET http://localhost:3000/events/{{eventId}}/spots
+
+###
+# @name createSpot
+POST http://localhost:3000/events/{{eventId}}/spots
+Content-Type: application/json
+
+{
+  "name": "My Spot"
+}
+
+###
+@spotName = {{createSpot.response.body.name}}
+
+###
+POST http://localhost:3000/events/{{eventId}}/reserve
+Content-Type: application/json
+
+{
+  "spots": ["{{spotName}}"],
+  "ticket_kind": "full",
+  "email": "testt@hotmail.com"
+}
+
+
+
