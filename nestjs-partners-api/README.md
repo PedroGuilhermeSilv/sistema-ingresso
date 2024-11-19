@@ -24,7 +24,7 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript.
 ## Description
-[Arquitetura](./img/design.png).
+![Arquitetura](./img/design.png)
 A ideia desse projeto com NestJS é simular duas APIs que funcionarão como clientes. Essas APIs irão gerenciar a reserva de ingressos, verificando a disponibilidade com base no evento e no local. Além disso, elas deverão retornar se há ingressos disponíveis e permitir a efetivação da reserva.
 
 ## Project setup
