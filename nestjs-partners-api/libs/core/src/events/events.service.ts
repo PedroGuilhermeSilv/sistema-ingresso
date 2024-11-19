@@ -1,6 +1,6 @@
+import { PrismaService } from '@app/core/prisma/prisma.service';
 import { HttpCode, Injectable } from '@nestjs/common';
 import { Prisma, TicketStatus } from '@prisma/client';
-import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { ReserveSpotDto } from './dto/reserve-spot.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -98,7 +98,7 @@ export class EventsService {
       );
 
       return tickets;
-    });
+    },{isolationLevel: Prisma.TransactionIsolationLevel.ReadCommitted});
     return tickets;
   }
   catch (error) {
