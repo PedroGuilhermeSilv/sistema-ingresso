@@ -1,6 +1,6 @@
 # Arquitetura do projeto
 
-![arquitetura](./img/arquitetura.png)
+![arquitetura](./docs/img/arquitetura.png)
 
 ## Tecnologias
 - Docker
